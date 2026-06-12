@@ -181,7 +181,7 @@ it('ignores model_name_case when using the FQCN', function () {
 it('returns the same string on repeated calls without recomputing', function () {
     $generator = PermissionGenerator::make('App\\Models\\Post', 'view');
 
-    $first  = $generator->permission();
+    $first = $generator->permission();
     $second = $generator->permission();
 
     expect($first)->toBe($second)->toBe('post.view');

@@ -10,8 +10,8 @@ use Tests\Models\User;
 function makeUser(): User
 {
     return User::create([
-        'name'     => 'Test User',
-        'email'    => 'user'.uniqid().'@example.com',
+        'name' => 'Test User',
+        'email' => 'user'.uniqid().'@example.com',
         'password' => 'secret',
     ]);
 }

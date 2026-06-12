@@ -5,6 +5,7 @@ namespace Tests;
 use Abather\LaravelPermissionGenerator\PermissionGenerator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Spatie\Permission\PermissionServiceProvider;
+use Tests\Models\User;
 
 abstract class FeatureTestCase extends TestCase
 {
@@ -22,12 +23,12 @@ abstract class FeatureTestCase extends TestCase
     {
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
 
-        $app['config']->set('auth.providers.users.model', \Tests\Models\User::class);
+        $app['config']->set('auth.providers.users.model', User::class);
     }
 
     protected function defineDatabaseMigrations(): void

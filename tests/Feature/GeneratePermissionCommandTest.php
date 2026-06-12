@@ -13,12 +13,12 @@ function guardConfig(array $overrides = [], string $guard = 'web'): void
 {
     config(['laravel-permission-generator.guards' => [
         $guard => array_merge([
-            'models'            => [],
-            'except'            => [],
-            'abilities'         => ['view', 'create', 'update', 'delete'],
-            'custom_abilities'  => [],
+            'models' => [],
+            'except' => [],
+            'abilities' => ['view', 'create', 'update', 'delete'],
+            'custom_abilities' => [],
             'other_permissions' => [],
-            'super_role'        => 'admin',
+            'super_role' => 'admin',
         ], $overrides),
     ]]);
     config(['laravel-permission-generator.models' => []]);
@@ -71,23 +71,23 @@ it('calls permission:cache-reset without error', function () {
 
 it('includes global models in every guard', function () {
     config([
-        'laravel-permission-generator.models'  => [Post::class],
-        'laravel-permission-generator.guards'  => [
+        'laravel-permission-generator.models' => [Post::class],
+        'laravel-permission-generator.guards' => [
             'web' => [
-                'models'            => [],
-                'except'            => [],
-                'abilities'         => ['view'],
-                'custom_abilities'  => [],
+                'models' => [],
+                'except' => [],
+                'abilities' => ['view'],
+                'custom_abilities' => [],
                 'other_permissions' => [],
-                'super_role'        => null,
+                'super_role' => null,
             ],
             'api' => [
-                'models'            => [],
-                'except'            => [],
-                'abilities'         => ['view'],
-                'custom_abilities'  => [],
+                'models' => [],
+                'except' => [],
+                'abilities' => ['view'],
+                'custom_abilities' => [],
                 'other_permissions' => [],
-                'super_role'        => null,
+                'super_role' => null,
             ],
         ],
     ]);
@@ -103,12 +103,12 @@ it('excludes a global model listed in except', function () {
         'laravel-permission-generator.models' => [Post::class, Article::class],
         'laravel-permission-generator.guards' => [
             'web' => [
-                'models'            => [],
-                'except'            => [Article::class],
-                'abilities'         => ['view'],
-                'custom_abilities'  => [],
+                'models' => [],
+                'except' => [Article::class],
+                'abilities' => ['view'],
+                'custom_abilities' => [],
                 'other_permissions' => [],
-                'super_role'        => null,
+                'super_role' => null,
             ],
         ],
     ]);
@@ -124,12 +124,12 @@ it('includes an excepted model when it is also in the guard models list', functi
         'laravel-permission-generator.models' => [Post::class],
         'laravel-permission-generator.guards' => [
             'web' => [
-                'models'            => [Post::class],
-                'except'            => [Post::class],
-                'abilities'         => ['view'],
-                'custom_abilities'  => [],
+                'models' => [Post::class],
+                'except' => [Post::class],
+                'abilities' => ['view'],
+                'custom_abilities' => [],
                 'other_permissions' => [],
-                'super_role'        => null,
+                'super_role' => null,
             ],
         ],
     ]);
@@ -154,8 +154,8 @@ it('uses the model static $abilities for the guard when defined', function () {
 
 it('appends custom_abilities from the guard config', function () {
     guardConfig([
-        'models'           => [Post::class],
-        'abilities'        => ['view'],
+        'models' => [Post::class],
+        'abilities' => ['view'],
         'custom_abilities' => [Post::class => ['export']],
     ]);
 
@@ -190,11 +190,11 @@ it('assigns all guard permissions to the super role', function () {
 
     $this->artisan('permission:generate-permission');
 
-    $role        = Role::where('name', 'admin')->where('guard_name', 'web')->first();
+    $role = Role::where('name', 'admin')->where('guard_name', 'web')->first();
     $permissions = $role->permissions->pluck('name');
 
     expect($permissions)->toContain('post.view')
-                        ->toContain('post.create');
+        ->toContain('post.create');
 });
 
 it('outputs an error when super_role is null', function () {
@@ -211,20 +211,20 @@ it('generates permissions separately for each guard', function () {
         'laravel-permission-generator.models' => [],
         'laravel-permission-generator.guards' => [
             'web' => [
-                'models'            => [Post::class],
-                'except'            => [],
-                'abilities'         => ['view'],
-                'custom_abilities'  => [],
+                'models' => [Post::class],
+                'except' => [],
+                'abilities' => ['view'],
+                'custom_abilities' => [],
                 'other_permissions' => [],
-                'super_role'        => null,
+                'super_role' => null,
             ],
             'api' => [
-                'models'            => [Article::class],
-                'except'            => [],
-                'abilities'         => ['view'],
-                'custom_abilities'  => [],
+                'models' => [Article::class],
+                'except' => [],
+                'abilities' => ['view'],
+                'custom_abilities' => [],
                 'other_permissions' => [],
-                'super_role'        => null,
+                'super_role' => null,
             ],
         ],
     ]);
@@ -277,8 +277,8 @@ describe('file-based guard configs', function () {
         ));
 
         config([
-            'laravel-permission-generator.models'      => [],
-            'laravel-permission-generator.guards'      => [],
+            'laravel-permission-generator.models' => [],
+            'laravel-permission-generator.guards' => [],
             'laravel-permission-generator.guards_path' => $subdir,
         ]);
 
@@ -299,16 +299,16 @@ describe('file-based guard configs', function () {
         ));
 
         config([
-            'laravel-permission-generator.models'      => [],
+            'laravel-permission-generator.models' => [],
             'laravel-permission-generator.guards_path' => $subdir,
-            'laravel-permission-generator.guards'      => [
+            'laravel-permission-generator.guards' => [
                 'web' => [
-                    'models'            => [Post::class],
-                    'except'            => [],
-                    'abilities'         => ['create'],
-                    'custom_abilities'  => [],
+                    'models' => [Post::class],
+                    'except' => [],
+                    'abilities' => ['create'],
+                    'custom_abilities' => [],
                     'other_permissions' => [],
-                    'super_role'        => null,
+                    'super_role' => null,
                 ],
             ],
         ]);

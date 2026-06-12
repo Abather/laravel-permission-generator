@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 $guardsDir = null;
 
 beforeEach(function () use (&$guardsDir) {
-    $subdir    = 'test-guard-cfg-'.uniqid();
+    $subdir = 'test-guard-cfg-'.uniqid();
     $guardsDir = app()->configPath($subdir);
 
     config(['laravel-permission-generator.guards_path' => $subdir]);
@@ -86,12 +86,12 @@ it('generated file ships with the seven default abilities', function () use (&$g
     $abilities = (require $guardsDir.'/api.php')['abilities'];
 
     expect($abilities)->toContain('view')
-                      ->toContain('view_any')
-                      ->toContain('create')
-                      ->toContain('update')
-                      ->toContain('restore')
-                      ->toContain('delete')
-                      ->toContain('force_delete');
+        ->toContain('view_any')
+        ->toContain('create')
+        ->toContain('update')
+        ->toContain('restore')
+        ->toContain('delete')
+        ->toContain('force_delete');
 });
 
 it('generated file has empty models, except, custom_abilities, and other_permissions by default', function () use (&$guardsDir) {
@@ -114,9 +114,9 @@ it('generated file has admin as the default super_role', function () use (&$guar
 it('file content matches the stub exactly', function () use (&$guardsDir) {
     $this->artisan('permission:guard-config', ['guard' => 'api']);
 
-    $stubPath    = realpath(__DIR__.'/../../stubs/guard.config.stub');
-    $generated   = file_get_contents($guardsDir.'/api.php');
-    $stub        = file_get_contents($stubPath);
+    $stubPath = realpath(__DIR__.'/../../stubs/guard.config.stub');
+    $generated = file_get_contents($guardsDir.'/api.php');
+    $stub = file_get_contents($stubPath);
 
     expect($generated)->toBe($stub);
 });
