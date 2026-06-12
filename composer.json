@@ -12,7 +12,7 @@
   "homepage": "https://github.com/abather/laravel-permission-generator",
   "type": "package",
   "require": {
-    "php": "^8.2",
+    "php": "^8.3",
     "spatie/laravel-permission": "^6|^7|^8"
   },
   "require-dev": {
