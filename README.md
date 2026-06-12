@@ -6,6 +6,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/abather/laravel-permission-generator.svg?style=flat-square)](https://packagist.org/packages/abather/laravel-permission-generator)
 [![Total Downloads](https://img.shields.io/packagist/dt/abather/laravel-permission-generator.svg?style=flat-square)](https://packagist.org/packages/abather/laravel-permission-generator)
+[![Tests](https://img.shields.io/github/actions/workflow/status/Abather/laravel-permission-generator/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/Abather/laravel-permission-generator/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg?style=flat-square)](LICENSE.md)
 
 A Laravel package that automatically generates [Spatie Laravel Permission](https://github.com/spatie/laravel-permission) permissions from a config file. Define your models, abilities, and guards once — then run a single Artisan command to create every permission in the database.
