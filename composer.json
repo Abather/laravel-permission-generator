@@ -1,0 +1,52 @@
+{
+  "name": "abather/laravel-permission-generator",
+  "description": "laravel permission generator",
+  "keywords": [
+    "laravel",
+    "spatie",
+    "laravel-permission",
+    "generator"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "homepage": "https://github.com/abather/laravel-permission-generator",
+  "type": "package",
+  "require": {
+    "php": "^8.2",
+    "spatie/laravel-permission": "^6|^7|^8"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.0",
+    "orchestra/testbench": "^11.1",
+    "pestphp/pest": "^4.7",
+    "pestphp/pest-plugin-laravel": "^4.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Abather\\LaravelPermissionGenerator\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "v1-dev"
+    },
+    "laravel": {
+      "providers": [
+        "Abather\\LaravelPermissionGenerator\\PermissionGeneratorServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

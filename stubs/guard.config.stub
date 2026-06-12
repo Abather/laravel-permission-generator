@@ -1,0 +1,125 @@
+<?php
+
+return [
+
+    /*
+    |------------------------------------------------------------------
+    | Models
+    |------------------------------------------------------------------
+    |
+    | The model classes to generate permissions for under this guard.
+    |
+    | Example:
+    |
+    |     'models' => [
+    |         App\Models\BlogPost::class,
+    |         App\Models\Category::class,
+    |     ],
+    |
+    */
+
+    'models' => [],
+
+    /*
+    |------------------------------------------------------------------
+    | Excluded Global Models
+    |------------------------------------------------------------------
+    |
+    | Model classes listed here are removed from the top-level
+    | 'models' list for this guard only. Use this when a global model
+    | should not generate permissions under a specific guard.
+    |
+    | Note: if the same model is also listed in this guard's 'models'
+    | key above, the exclusion is ignored and the model is included.
+    |
+    | Example:
+    |
+    |     'except' => [
+    |         App\Models\AdminLog::class,
+    |     ],
+    |
+    */
+
+    'except' => [],
+
+    /*
+    |------------------------------------------------------------------
+    | Default Abilities
+    |------------------------------------------------------------------
+    |
+    | Abilities applied to every model listed above. A model may
+    | override this list per guard by defining:
+    |
+    |     public static $abilities = [
+    |         'web' => ['view', 'update'],
+    |     ];
+    |
+    */
+
+    'abilities' => [
+        'view',
+        'view_any',
+        'create',
+        'update',
+        'restore',
+        'delete',
+        'force_delete',
+    ],
+
+    /*
+    |------------------------------------------------------------------
+    | Custom Abilities
+    |------------------------------------------------------------------
+    |
+    | Extra abilities for specific models, added on top of the
+    | default abilities. Keyed by class:
+    |
+    |     'custom_abilities' => [
+    |         App\Models\BlogPost::class => ['publish', 'archive'],
+    |     ],
+    |
+    | These may also be defined on the model itself, keyed by guard:
+    |
+    |     public static $custom_abilities = [
+    |         'web' => ['publish', 'archive'],
+    |     ];
+    |
+    */
+
+    'custom_abilities' => [],
+
+    /*
+    |------------------------------------------------------------------
+    | Other Permissions
+    |------------------------------------------------------------------
+    |
+    | Permissions not tied to any model. These are created exactly
+    | as written, ignoring the naming settings above.
+    |
+    | Example:
+    |
+    |     'other_permissions' => [
+    |         'viewPulse',
+    |         'viewHorizon',
+    |         'access_admin_panel',
+    |     ],
+    |
+    */
+
+    'other_permissions' => [],
+
+    /*
+    |------------------------------------------------------------------
+    | Super Role
+    |------------------------------------------------------------------
+    |
+    | Optional. When set, the role is created if it does not exist,
+    | and all permissions for this guard are assigned to it.
+    | Set to null to disable.
+    |
+    |     'super_role' => 'admin',
+    |
+    */
+
+    'super_role' => 'admin',
+];
